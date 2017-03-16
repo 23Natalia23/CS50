@@ -1,0 +1,27 @@
+0.  What is pneumonoultramicroscopicsilicovolcanoconiosis?
+-It is the longest word in the English language with 45 characters.
+
+1.  According to its man page, what does getrusage do?
+-Returns resource usage measures for who.
+
+2.  Per that same man page, how many members are in a variable of type struct rusage?
+-16
+
+3.  Why do you think we pass before and after by reference (instead of by value) to calculate, even though we’re not changing their contents?
+-Passing in a reference avoid making unnecessary copies of the before and after structs.
+
+4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file. In other words,
+convince us that you indeed understand how that function’s for loop works.
+-For each char that we get from file (fgetc) and till the end of the file (!= EOF) check if alphabetical/apostrophe (withing LENGTH) it is or decimal digit.
+We ignore words with numbers. If it is a letter, the character will be inserted into the WORD array at the INDEX position.
+After, INDEX is incremented to go to the next position in the array. If a character is not alphabetical/apostrophe or a number then it must be the end of the word.
+After all characters are checked, it terminates current word and updates counter of words.
+check() returns true if word is in dictionary else false. misspelled stores the word, if check() returns false.
+
+5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like "%s" to read whole words at a time?
+Put another way, what problems might arise by relying on fscanf alone?
+-fscanf doesn't check each character and might return a string with invalid characters (comma).
+
+6.  Why do you think we declared the parameters for check and load as const (which means "constant")?
+-The const type ensures that the initial value of the parameter cannot be modified.
+This means that each word we are checking along with the dictionary cannot be changed.
